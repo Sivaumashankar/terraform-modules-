@@ -1,0 +1,30 @@
+default:
+EC2 physical server lo create avtundi
+Same hardware ni multiple customers EC2s share chesthayi
+dedicated:
+EC2 physical server mee account ke reserved
+Mee EC2s matrame aa hardware meeda run avtayi
+👉 Difference only hardware sharing lo
+👉 OS / instance behavior same
+
+
+
+enable_dns_hostnames VPC lo endhuku?
+👉 Ee VPC lo create ayye anni EC2s ki DNS names enable cheyyadaniki.
+VPC level setting idi
+Okasari enable chesthe → aa VPC lo unna all resources ki apply avtundi
+If idi lekapothe:
+EC2 ki public/private DNS names raadhu
+Load Balancer, RDS, EKS problems vastayi
+enable_dns_hostnames = true isthe
+
+EC2 ki DNS name untundi
+Route53 lo DNS records create cheyyagalavu
+IP ki domain name map cheyyagalavu
+Adhi ivvakapothe
+EC2 ki DNS name undadu
+Route53 record create cheyyadam panicheyyadu / issues vastayi
+Simple line:
+👉 DNS hostnames ON unte ne IP → DNS mapping possible
+
+

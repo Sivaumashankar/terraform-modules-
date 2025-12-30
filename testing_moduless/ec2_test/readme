@@ -1,0 +1,82 @@
+Terraform itself default region set cheyyadu.
+Adi AWS CLI / environment nundi teesukuntundi.
+
+Enduku region automatic ga vachindi?
+
+Mee system lo already idi undi:
+
+AWS_DEFAULT_REGION or
+
+AWS_REGION or
+
+AWS CLI config (~/.aws/config)
+
+Example:
+
+aws configure
+
+
+Ippudu set chesina region ni Terraform silent ga use chesthundi.
+
+Terraform region priority (actual flow):
+
+1️⃣ provider "aws" { region = "..." }
+2️⃣ Env vars → AWS_REGION / AWS_DEFAULT_REGION
+3️⃣ AWS CLI config
+4️⃣ ❌ Em lekapothe → error
+
+Proof check cheyyali ante:
+aws configure list
+
+
+
+
+
+Without documentation:
+
+User ki teliyadu:
+
+Ee module em chesthundi
+
+Which variables mandatory
+
+Optional values enti
+
+Wrong value isthe em avtundi
+
+With documentation:
+
+Clear ga telusthundi:
+
+Inputs (variables)
+
+Outputs
+
+Example usage
+
+Constraints (like your instance_type validation)
+
+Real example (nee case):
+
+Nuvvu module create chesav:
+
+variable "instance_type" {
+  validation {
+    condition = contains(["t3.micro","t3.small","t3.medium"], var.instance_type)
+  }
+}
+
+
+User ki documentation lo teliyali:
+
+Allowed values: t3.micro, t3.small, t3.medium
+
+Other values isthe → error vastundi
+
+Industry reason:
+
+Same module ni 100 mandi use chestharu
+
+Andariki code open chesi chudadam possible kaadu
+
+Documentation = contract between module author & user

@@ -1,0 +1,16 @@
+output "vpc_id" {
+  value = aws_vpc.main.id
+}
+📁 testvpc – output.tf
+hcl
+Copy code
+output "vpc_info" {
+  value = module.vpc.vpc_id
+}
+
+Nuvvu module lo output ki ichina name ade name tho matrame bayata (testvpc lo) call cheyyali.
+
+One-line rule (remember forever)
+
+Module outputs = module public API
+Call with the SAME output name
